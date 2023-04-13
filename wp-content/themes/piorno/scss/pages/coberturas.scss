@@ -1,0 +1,117 @@
+.hero {
+  @include row();
+  @include cover();
+  background-position: bottom center;
+  height: 500px;
+  position: relative;
+
+  @include responsive('tablet-v') {
+    height: 350px;
+  }
+
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    content: '';
+    z-index: 2;
+  }
+
+  &__title {
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+    @include row();
+    z-index: 3;
+
+    * {
+      font-size: 60px;
+      color: $white;
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 0;
+      text-transform: uppercase;
+
+      @include responsive('tablet-v') {
+        font-size: 30px;
+      }
+    }
+
+    @include responsive('tablet-v') {
+      font-size: 40px;
+    }
+
+    strong {
+      font-weight: 700 !important;
+    }
+  }
+
+  &__text {
+    @include row();
+
+    p {
+      color: $white;
+
+      @include responsive('tablet-v') {
+        font-size: 16px;
+      }
+    }
+  }
+
+}
+
+.coberturas {
+  padding: 90px 0;
+
+  &__cont {
+    text-align: center;
+
+    &__title {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__grid {
+    margin: 50px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(300px, auto);
+    grid-gap: 20px;
+
+    &__item {
+      @include row();
+      @include centerDiv();
+      box-shadow: rgba(0,0,0,0.4) 0 0 10px;
+      padding: 20px;
+      position: relative;
+      text-align: center;
+      transition: all 0.5s ease;
+      cursor: pointer;
+
+      &:hover {
+        transform: translate(0, -30px);
+      }
+
+      img {
+        height: 80px;
+        object-fit: cover;
+        display: inline-block;
+      }
+
+      &__title {
+        margin-top: 20px;
+        color: #0e0e48;
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      &__text {
+        margin-top: 20px;
+        color: #0e0e48;
+      }
+    }
+  }
+}
